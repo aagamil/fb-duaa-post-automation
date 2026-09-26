@@ -1,5 +1,8 @@
 {
   "total_images": 170,
-  "pending": null,
+  "pending": {
+    "index": 1,
+    "started_at": "2026-09-26T14:54:25.484440+00:00"
+  },
   "current_index": 1
 }
