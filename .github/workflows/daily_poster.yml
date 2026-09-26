@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   post:
-    if: vars.FB_POSTING_ENABLED == 'true'
+    if: vars.FB_POSTING_ENABLED == 'true' || (github.event_name == 'workflow_dispatch' && inputs.dry_run)
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -54,3 +54,4 @@ jobs:
           name: posting-state-${{ github.run_id }}
           path: state.json
           retention-days: 30
+
