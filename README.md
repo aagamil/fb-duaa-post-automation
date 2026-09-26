@@ -6,18 +6,18 @@ The URL's ID is the configured target; authenticated verification is still requi
 ## What is ready
 
 Python publisher, GitHub Actions workflow, persistent state, custom captions, offline tests,
-and recovery protection. No images or credentials are included. Nothing has been posted or deployed.
-The workflow is disabled until repository variable `FB_POSTING_ENABLED` is `true`.
+and recovery protection. Includes 170 supplied JPEG images, ordered by original filename; image-manifest.json maps the names. No credentials are included. Facebook publication has not yet been tested.
+Live posting is disabled until repository variable `FB_POSTING_ENABLED` is `true`.
 
 Schedule: every day at 10:00 UTC (13:00 Riyadh). GitHub schedules are best-effort and can run late.
-After image 200 it loops back to image 1. Change `total_images` to your actual image count.
+After image 170 it loops back to image 1. Change `total_images` to your actual image count.
 Hosting costs depend on your GitHub plan and usage; free operation is not guaranteed.
 
 ## Deploy
 
-1. Create or choose a private GitHub repository. Upload this folder's **contents** to its default branch,
+1. The target repository is https://github.com/aagamil/fb-duaa-post-automation (public). Upload this folder's **contents** to its default branch,
    including the hidden `.github` folder. Do not upload the enclosing folder as a subfolder.
-2. Put real JPEGs in `images`, named `image_1.jpg` through `image_200.jpg`.
+2. Put real JPEGs in `images`, named `image_1.jpg` through `image_170.jpg`.
    Optionally add UTF-8 `image_1.txt`, etc., for custom captions. Otherwise captions are `Daily Post #1`, etc.
 3. In Settings > Secrets and variables > Actions, create the secret `FB_PAGE_ACCESS_TOKEN`.
    Never commit credentials. The Page ID is already configured in the script and workflow.
@@ -25,7 +25,7 @@ Hosting costs depend on your GitHub plan and usage; free operation is not guaran
    Meta app dashboard, in the form `vNN.0`. This is intentionally required rather than copying the
    old v19.0 value from the supplied example. Live Meta documentation was unavailable during implementation.
 5. Ensure Actions has read/write repository contents permission and branch rules permit the bot's state commits.
-6. Add repository variable `FB_POSTING_ENABLED` = `true`. This enables scheduled posting as well as manual runs.
+6. Add repository variable `FB_POSTING_ENABLED` = `true`. This enables live scheduled and manual posting. Manual dry runs also work while disabled.
 7. Under Actions > Daily Facebook Image Poster, run with `dry_run` checked to validate the next image.
    To publish a real first post, run again with `dry_run` unchecked. Check the Page and committed state.
 8. To pause, set `FB_POSTING_ENABLED` = `false`.
@@ -76,3 +76,4 @@ retries for duplicate protection. Exactly-once delivery across Facebook and GitH
 Do not run another copy of the script against the same Page/state concurrently. The workflow mutex only
 covers this repository. A failed push before posting prevents publication; failed pushes after posting require
 the reconciliation above. Artifacts contain state and photo IDs, never the token.
+
