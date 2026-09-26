@@ -2,7 +2,7 @@ name: Daily Facebook Image Poster
 
 on:
   schedule:
-    - cron: '0 10 * * *'
+    - cron: '15 14 * * *'
   workflow_dispatch:
     inputs:
       dry_run:
@@ -54,4 +54,3 @@ jobs:
           name: posting-state-${{ github.run_id }}
           path: state.json
           retention-days: 30
-
