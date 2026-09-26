@@ -115,7 +115,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     try:
         run(args.dry_run, args.persist)
-    except (ValueError, OSError, RuntimeError, KeyError, subprocess.CalledProcessError):
-        # Avoid tracebacks exposing HTTP headers, credentials, or remote configuration.
-        print("Posting stopped. Check image/state files, configuration, permissions and any pending attempt. See README.", file=sys.stderr)
+    except (ValueError, OSError, RuntimeError, KeyError, subprocess.CalledProcessError) as error:
+        # Error messages are deliberately sanitized in api(); never print headers or tokens.
+        print(f"Posting stopped: {error}", file=sys.stderr)
         sys.exit(1)
