@@ -38,7 +38,7 @@ jobs:
       - name: Post or validate
         env:
           FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
-          FB_PAGE_ID: '581947825005691'
+          FB_PAGE_ID: '61574574579911'
           FB_GRAPH_API_VERSION: ${{ vars.FB_GRAPH_API_VERSION }}
           DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
         run: |
