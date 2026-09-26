@@ -12,7 +12,7 @@ from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
 
 ROOT = Path(__file__).resolve().parent
-PAGE_ID = "61574574579911"
+PAGE_ID = "581947825005691"
 
 
 def save(state):
