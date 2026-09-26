@@ -78,7 +78,7 @@ def run(dry_run=False, persist=False):
     index = state["current_index"]
     path = photo_path(index)
     caption_file = path.with_suffix(".txt")
-    caption = caption_file.read_text(encoding="utf-8").strip() if caption_file.exists() else f"Daily Post #{index}"
+    caption = caption_file.read_text(encoding="utf-8").strip() if caption_file.exists() else f""
     if dry_run:
         print(f"Validated {path.name} for Page {PAGE_ID}. Caption: {caption}")
         return
