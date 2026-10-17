@@ -1,6 +1,9 @@
 {
   "total_images": 170,
-  "pending": null,
+  "pending": {
+    "index": 25,
+    "started_at": "2026-10-17T17:13:22.406526+00:00"
+  },
   "current_index": 25,
   "last_post": {
     "index": 24,
