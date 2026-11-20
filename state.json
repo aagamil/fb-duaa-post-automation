@@ -1,13 +1,10 @@
 {
   "total_images": 170,
-  "pending": {
-    "index": 59,
-    "started_at": "2026-11-20T21:49:55.870136+00:00"
-  },
-  "current_index": 59,
+  "pending": null,
+  "current_index": 60,
   "last_post": {
-    "index": 58,
-    "photo_id": "122183308262819152",
-    "posted_at": "2026-11-19T22:10:27.289352+00:00"
+    "index": 59,
+    "photo_id": "122183390450819152",
+    "posted_at": "2026-11-20T21:50:00.815215+00:00"
   }
 }
